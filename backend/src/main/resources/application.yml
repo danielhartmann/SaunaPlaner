@@ -2,10 +2,11 @@ spring:
   application:
     name: thermaflow-backend
   
-  # Enable Virtual Threads for I/O-heavy operations
-  threads:
-    virtual:
-      enabled: true
+  # Enable Virtual Threads for I/O-heavy operations (requires Java 21+)
+  # Uncomment the following when using Java 21+:
+  # threads:
+  #   virtual:
+  #     enabled: true
   
   # Database Configuration
   datasource:

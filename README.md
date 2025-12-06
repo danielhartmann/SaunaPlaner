@@ -7,7 +7,7 @@ ThermaFlow is a comprehensive SaaS platform designed for thermal baths to plan, 
 ## Technology Stack
 
 ### Backend
-- **Java 21 LTS** with Spring Boot 3.4+
+- **Java 17+** (or Java 21 LTS for full Virtual Threads support) with Spring Boot 3.4+
 - **Virtual Threads** enabled for heavy I/O operations (PDF generation, database reporting)
 - **PostgreSQL** (Production) / **H2** (Development)
 - **Spring Data JPA** with Flyway migrations

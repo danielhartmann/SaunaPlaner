@@ -189,8 +189,16 @@ public class ScheduleValidatorService {
     
     /**
      * Helper method to check if two time ranges overlap.
+     * Uses proper interval comparison: two intervals overlap if 
+     * start1 < end2 AND start2 < end1
      */
     private boolean timesOverlap(LocalTime start1, LocalTime end1, LocalTime start2, LocalTime end2) {
-        return !start1.isAfter(end2) && !start2.isAfter(end1);
+        // Validate inputs
+        if (start1 == null || end1 == null || start2 == null || end2 == null) {
+            throw new IllegalArgumentException("Time values cannot be null");
+        }
+        
+        // Two intervals overlap if: start1 < end2 AND start2 < end1
+        return start1.isBefore(end2) && start2.isBefore(end1);
     }
 }

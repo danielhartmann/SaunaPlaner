@@ -376,11 +376,14 @@ export class RecipeBuilderComponent {
     this.recipeService.createRecipe(recipe).subscribe({
       next: (saved) => {
         console.log('Recipe saved successfully:', saved);
+        // TODO: Replace with MatSnackBar for better UX
+        // Example: this.snackBar.open('Recipe saved successfully!', 'Close', { duration: 3000 });
         alert(`Recipe "${saved.name}" saved successfully!\nTotal Duration: ${saved.totalDuration}s\nTotal Cost: $${saved.totalCost?.toFixed(2)}`);
         this.resetForm();
       },
       error: (err) => {
         console.error('Error saving recipe:', err);
+        // TODO: Replace with MatSnackBar for better UX
         alert('Error saving recipe. Please try again.');
       }
     });

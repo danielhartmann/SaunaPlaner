@@ -189,14 +189,18 @@ public class PdfExportService {
         return cell;
     }
     
+    // Intensity threshold constants
+    private static final double LOW_INTENSITY_THRESHOLD = 3.0;
+    private static final double MEDIUM_INTENSITY_THRESHOLD = 6.0;
+    
     /**
      * Generates visual intensity indicator based on heat level.
      * Returns flame emojis/symbols representing intensity (1-3).
      */
     private String getIntensityIndicator(double averageIntensity) {
-        if (averageIntensity <= 3.0) {
+        if (averageIntensity <= LOW_INTENSITY_THRESHOLD) {
             return "🔥";  // Low intensity
-        } else if (averageIntensity <= 6.0) {
+        } else if (averageIntensity <= MEDIUM_INTENSITY_THRESHOLD) {
             return "🔥🔥";  // Medium intensity
         } else {
             return "🔥🔥🔥";  // High intensity

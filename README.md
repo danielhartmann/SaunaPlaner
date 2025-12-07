@@ -151,6 +151,19 @@ public Executor virtualThreadExecutor() {
 - `DELETE /api/schedules/slots/{slotId}` - Cancel slot
 - `GET /api/schedules/{date}/pdf` - Download daily schedule PDF
 
+### Digital Signage (Guest-Facing Displays)
+- `GET /api/signage/today` - Today's schedule formatted for displays
+- `GET /api/signage/{date}` - Schedule for specific date (format: yyyy-MM-dd)
+- `GET /api/signage/next` - Next 3-5 upcoming infusions
+- `GET /api/signage/current` - Currently running infusion (404 if none)
+
+**Display Format Features:**
+- Guest-friendly time formatting (HH:mm)
+- Duration in minutes (e.g., "20 min")
+- Intensity levels: Mild 🔥, Mittel 🔥🔥, Intensiv 🔥🔥🔥
+- Scent profiles and themes
+- Currently running status indicator
+
 ## Database Schema
 
 Flyway migrations manage the schema:

@@ -108,12 +108,15 @@ public class DigitalSignageService {
                 .map(ScentProfile::name)
                 .collect(Collectors.toList());
         
+        LocalTime endTime = slot.getEndTime();
+        int durationSeconds = endTime.toSecondOfDay() - slot.getStartTime().toSecondOfDay();
+        
         return SignageDisplayDTO.builder()
                 .roomName(slot.getRoom().getName())
                 .recipeName(slot.getRecipe().getName())
                 .startTime(slot.getStartTime().format(TIME_FORMATTER))
-                .endTime(slot.getEndTime().format(TIME_FORMATTER))
-                .duration(formatDuration(slot.getRecipe().calculateTotalDuration()))
+                .endTime(endTime.format(TIME_FORMATTER))
+                .duration(formatDuration(durationSeconds))
                 .intensity(mapIntensityLevel(avgIntensity))
                 .intensityIcon(mapIntensityIcon(avgIntensity))
                 .scentProfiles(scentProfiles)

@@ -160,8 +160,7 @@ class DigitalSignageServiceTest {
     
     @Test
     void testIntensityMapping_Mild() {
-        // Arrange - average intensity = (3 + 8 + 2) / 3 = 4.33 (should be Mittel)
-        // Let's create a mild recipe
+        // Arrange - Create a mild recipe with low heat intensity (1-3)
         InfusionRecipe mildRecipe = InfusionRecipe.builder()
                 .id(2L)
                 .name("Gentle Breeze")

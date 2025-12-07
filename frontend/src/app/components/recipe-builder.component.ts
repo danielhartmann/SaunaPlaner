@@ -156,7 +156,7 @@ import { RecipeService } from '../services/recipe.service';
               </div>
               <div class="summary-item">
                 <span class="summary-label">Total Cost:</span>
-                <span class="summary-value">${{ totalCost().toFixed(2) }}</span>
+                <span class="summary-value">{{ '$' + totalCost().toFixed(2) }}</span>
               </div>
               <div class="summary-item">
                 <span class="summary-label">Number of Steps:</span>
